@@ -12,14 +12,16 @@ namespace web.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        public string TestValues { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
         }
 
-        public void OnGet()
+        public async void OnGetAsync()
         {
-
+            TestValues = await infrastructure.Class1.GrabTestData();
         }
     }
 }
