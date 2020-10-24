@@ -5,6 +5,6 @@ OVERVIEW
 * Site that has events from space exploration history
 * Google SSO integrated for submitting suggestions
 * ASP.NET Core, Razor
-* CleanArchitecture concepts from @ardalis
+* CleanArchitecture concepts from [@ardalis](https://github.com/ardalis)
 * Mongo back end
 * Docker enabled
