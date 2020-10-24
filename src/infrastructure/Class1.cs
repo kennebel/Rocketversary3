@@ -4,7 +4,7 @@ using MongoDB.Entities;
 
 namespace infrastructure
 {
-    public class Values : Entity
+    public class Test : Entity
     {
         public string stuff { get; set; }
     }
@@ -15,13 +15,13 @@ namespace infrastructure
         {
             var Result = "";
 
-            await DB.InitAsync("jac_test", "localhost", 27017);
-            var values = await DB.Find<Values>().ManyAsync(v => v.stuff == "other");
-            foreach (var OneVal in values)
+            await DB.InitAsync("jac_test");
+            var test_values = await DB.Find<Test>().ManyAsync(v => true);
+            foreach (var OneVal in test_values)
             {
-                Result += "," + OneVal;
+                Result += "," + OneVal.stuff;
             }
-            if (!string.IsNullOrEmpty(Result)) { Result.Substring(1); }
+            if (!string.IsNullOrEmpty(Result)) { Result = Result.Substring(1); }
 
             return Result;
         }

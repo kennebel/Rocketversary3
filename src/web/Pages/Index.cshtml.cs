@@ -17,11 +17,13 @@ namespace web.Pages
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
+            TestValues = "(pending)";
         }
 
-        public async void OnGetAsync()
+        public async Task OnGetAsync()
         {
             TestValues = await infrastructure.Class1.GrabTestData();
+            TestValues += "!!!";
         }
     }
 }
