@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MongoDB.Entities;
+using src.infrastructure.Data.Models;
 
 namespace infrastructure
 {
@@ -24,6 +25,17 @@ namespace infrastructure
             if (!string.IsNullOrEmpty(Result)) { Result = Result.Substring(1); }
 
             return Result;
+        }
+
+        public static async Task SaveTestRecord()
+        {
+            await DB.InitAsync("jac_test");
+            var siteConfig = new SiteConfig()
+            {
+                ContactDescription = "Jeremy",
+                ContactEmail = "rocketversary@kennebel.com"
+            };
+            await siteConfig.SaveAsync();
         }
     }
 }
